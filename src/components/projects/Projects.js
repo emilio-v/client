@@ -2,7 +2,7 @@ import React from "react";
 
 import SideBar from "../layout/SideBar";
 
-const Proyects = () => {
+const Projects = () => {
   return (
     <div className="contenedor-app">
       <SideBar />
@@ -15,4 +15,4 @@ const Proyects = () => {
   );
 };
 
-export default Proyects;
+export default Projects;

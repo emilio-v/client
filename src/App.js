@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Login from "./components/auth/Login";
 import NewAccount from "./components/auth/NewAccount";
-import Proyects from "./components/proyects/Proyects";
+import Projects from "./components/projects/Projects";
 
 const App = () => {
   return (
@@ -10,7 +10,7 @@ const App = () => {
       <Routes>
         <Route exact path="/" element={<Login />} />
         <Route exact path="/new-account" element={<NewAccount />} />
-        <Route exact path="/proyects" element={<Proyects />} />
+        <Route exact path="/proyects" element={<Projects />} />
       </Routes>
     </Router>
   );
