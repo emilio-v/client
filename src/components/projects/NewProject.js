@@ -4,7 +4,7 @@ import ProjectContext from "../../context/projects/projectContext";
 const NewProject = () => {
   // Get form state
   const projectsContext = useContext(ProjectContext);
-  const { form } = projectsContext;
+  const { form, displayForm } = projectsContext;
 
   const [project, setProject] = useState({
     name: "",
@@ -22,7 +22,11 @@ const NewProject = () => {
 
   return (
     <>
-      <button type="button" className="btn btn-block btn-primario">
+      <button
+        type="button"
+        className="btn btn-block btn-primario"
+        onClick={displayForm}
+      >
         New Project
       </button>
       {form && (
