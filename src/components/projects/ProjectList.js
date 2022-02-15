@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 
 import ProjectContext from "../../context/projects/projectContext";
 
@@ -6,7 +6,12 @@ import Project from "./Project";
 
 const ProjectList = () => {
   const projectsContext = useContext(ProjectContext);
-  const { projects } = projectsContext;
+  const { projects, getProjects } = projectsContext;
+
+  useEffect(() => {
+    getProjects();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   if (projects.lenght === 0) return;
 
