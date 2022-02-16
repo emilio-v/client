@@ -9,6 +9,7 @@ import {
   GET_PROJECTS,
   ADD_PROJECT,
   VALIDATE_FORM,
+  CURRENT_PROJECT,
 } from "../../types";
 
 const ProjectState = (props) => {
@@ -31,6 +32,7 @@ const ProjectState = (props) => {
     form: false,
     formError: false,
     projects: [],
+    currentProject: null,
   };
 
   // Dispatch to execute the actions
@@ -64,16 +66,25 @@ const ProjectState = (props) => {
     });
   };
 
+  const setCurrentProject = (projectId) => {
+    dispatch({
+      type: CURRENT_PROJECT,
+      payload: projectId,
+    });
+  };
+
   return (
     <ProjectContext.Provider
       value={{
         form: state.form,
         formError: state.formError,
         projects: state.projects,
+        currentProject: state.currentProject,
         displayForm,
         displayFormError,
         getProjects,
         addNewProject,
+        setCurrentProject,
       }}
     >
       {props.children}
