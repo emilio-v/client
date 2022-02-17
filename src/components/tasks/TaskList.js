@@ -1,4 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import ProjectContext from "../../context/projects/projectContext";
 
 import Task from "./Task";
 
@@ -10,9 +12,15 @@ const TaskList = () => {
     { name: "Import Images", state: false },
   ];
 
+  const { currentProject } = useContext(ProjectContext);
+
+  if (!currentProject) return <h2>Select a Project</h2>;
+
+  const [project] = currentProject;
+
   return (
     <>
-      <h2>Project: JAVA</h2>
+      <h2>Project: {project.name}</h2>
       <ul className="listado-tarea">
         {tasks.length === 0 ? (
           <li className="tarea">There are no tasks</li>
