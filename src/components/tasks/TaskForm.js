@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import ProjectContext from "../../context/projects/projectContext";
 
 const TaskForm = () => {
+  const { currentProject } = useContext(ProjectContext);
+
+  if (!currentProject) return null;
+
+  const [project] = currentProject;
+
   return (
     <div className="formulario">
       <form>
