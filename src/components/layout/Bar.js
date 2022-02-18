@@ -4,7 +4,7 @@ const Bar = () => {
   return (
     <header className="app-header">
       <p className="nombre-usuario">
-        Hola <span>Emilio</span>
+        Hi <span>Emilio</span>
       </p>
 
       <nav className="nav-principal">
