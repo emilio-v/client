@@ -12,7 +12,7 @@ const TaskList = () => {
     { name: "Import Images", state: false },
   ];
 
-  const { currentProject } = useContext(ProjectContext);
+  const { currentProject, deleteProject } = useContext(ProjectContext);
 
   if (!currentProject) return <h2>Select a Project</h2>;
 
@@ -34,7 +34,11 @@ const TaskList = () => {
           ))
         )}
       </ul>
-      <button type="button" className="btn btn-eliminar">
+      <button
+        type="button"
+        className="btn btn-eliminar"
+        onClick={() => deleteProject(project.id)}
+      >
         Delete Project &times;
       </button>
     </>
