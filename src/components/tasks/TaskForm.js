@@ -7,7 +7,7 @@ const TaskForm = () => {
 
   if (!currentProject) return null;
 
-  const [project] = currentProject;
+  // const [project] = currentProject;
 
   return (
     <div className="formulario">
