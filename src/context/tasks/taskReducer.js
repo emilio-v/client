@@ -1,4 +1,9 @@
-import { PROJECT_TASKS, ADD_TASK, VALIDATE_TASK } from "../../types";
+import {
+  PROJECT_TASKS,
+  ADD_TASK,
+  VALIDATE_TASK,
+  DELETE_TASK,
+} from "../../types";
 
 const TaskReducer = (state, action) => {
   switch (action.type) {
@@ -19,6 +24,11 @@ const TaskReducer = (state, action) => {
       return {
         ...state,
         taskError: true,
+      };
+    case DELETE_TASK:
+      return {
+        ...state,
+        tasks: state.tasks.filter((task) => task.id !== action.payload),
       };
     default:
       return state;

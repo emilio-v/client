@@ -18,14 +18,12 @@ const TaskList = () => {
       <h2>Project: {project.name}</h2>
       <ul className="listado-tarea">
         {projectTasks.length === 0 ? (
-          <li className="tarea">There are no tasks</li>
+          <li className="tarea" style={{ padding: "1.5rem" }}>
+            There are no tasks
+          </li>
         ) : (
           projectTasks.map((t) => (
-            <Task
-              key={`${t.name}-${Math.random()}`}
-              name={t.name}
-              state={t.state}
-            />
+            <Task key={`${t.name}-${Math.random()}`} {...t} />
           ))
         )}
       </ul>

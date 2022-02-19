@@ -1,6 +1,10 @@
-import React from "react";
+import React, { useContext } from "react";
 
-const Task = ({ name, state }) => {
+import TaskContext from "../../context/tasks/taskContext";
+
+const Task = ({ name, state, id, projectId }) => {
+  const { deleteTask, getProjectTasks } = useContext(TaskContext);
+
   return (
     <li className="tarea sombra">
       <p>{name}</p>
@@ -19,7 +23,14 @@ const Task = ({ name, state }) => {
         <button type="button" className="btn btn-primario">
           Edit
         </button>
-        <button type="button" className="btn btn-secundario">
+        <button
+          type="button"
+          className="btn btn-secundario"
+          onClick={() => {
+            deleteTask(id);
+            getProjectTasks(projectId);
+          }}
+        >
           Delete
         </button>
       </div>

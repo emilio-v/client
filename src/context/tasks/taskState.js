@@ -4,7 +4,12 @@ import { v4 } from "uuid";
 import TaskReducer from "./taskReducer";
 import TaskContext from "./taskContext";
 
-import { PROJECT_TASKS, ADD_TASK, VALIDATE_TASK } from "../../types";
+import {
+  PROJECT_TASKS,
+  ADD_TASK,
+  VALIDATE_TASK,
+  DELETE_TASK,
+} from "../../types";
 
 const TaskState = (props) => {
   const initialState = {
@@ -41,6 +46,13 @@ const TaskState = (props) => {
     });
   };
 
+  const deleteTask = (taskId) => {
+    dispatch({
+      type: DELETE_TASK,
+      payload: taskId,
+    });
+  };
+
   return (
     <TaskContext.Provider
       value={{
@@ -50,6 +62,7 @@ const TaskState = (props) => {
         getProjectTasks,
         addTask,
         validateTask,
+        deleteTask,
       }}
     >
       {props.children}
