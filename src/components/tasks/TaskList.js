@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 
 import ProjectContext from "../../context/projects/projectContext";
 import TaskContext from "../../context/tasks/taskContext";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 import Task from "./Task";
 
@@ -18,13 +19,21 @@ const TaskList = () => {
       <h2>Project: {project.name}</h2>
       <ul className="listado-tarea">
         {projectTasks.length === 0 ? (
-          <li className="tarea" style={{ padding: "1.5rem" }}>
-            There are no tasks
+          <li className="tarea">
+            <p>There are no tasks</p>
           </li>
         ) : (
-          projectTasks.map((t) => (
-            <Task key={`${t.name}-${Math.random()}`} {...t} />
-          ))
+          <TransitionGroup>
+            {projectTasks.map((t) => (
+              <CSSTransition
+                key={`${t.name}-${Math.random()}`}
+                timeout={200}
+                classNames="tarea"
+              >
+                <Task {...t} />
+              </CSSTransition>
+            ))}
+          </TransitionGroup>
         )}
       </ul>
       <button
